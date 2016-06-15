@@ -13,6 +13,7 @@ var _ = require('lodash');
 var Product = require('./product.model');
 var path = require('path');
 var Catalog = require('../catalog/catalog.model');
+var Menu = require('../menu/menu.model');
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
@@ -62,15 +63,22 @@ function removeEntity(res) {
   };
 }
 
-function saveFile(res, file) {
+function saveFile(res, files) {
+     var newPath;
+    var newPath1 = [];
   return function(entity){
-    var newPath = '/assets/uploads/' + path.basename(file[0].path);
-    entity.imageUrl = newPath;
-      console.log("File : " +entity.imageUrl);
-    for (var i = 0; i < file.length;i++){
-        console.log("File : " +file[i].path);
-        var newPath1 = '/assets/uploads/' + path.basename(file[i].path);
-      entity.images[i].imageUrl = newPath1;
+      if(files.length >1){
+        newPath = '/assets/uploads/' + path.basename(files[0].path);
+          console.log("FileDSADSD : " +newPath);
+              for (var i = 0; i < files.length;i++){
+                newPath1.push( '/assets/uploads/' + path.basename(files[i].path));
+                   console.log("File HI: " +newPath1[i]);
+            }
+                entity.images = newPath1;
+
+      }else{
+        newPath = '/assets/uploads/' + path.basename(files[0].path);
+        entity.images = newPath;
       }
     return entity.saveAsync().spread(function(updated) {
       return updated;
@@ -83,6 +91,13 @@ function productsInCategory(catalog) {
   return Product
     .find({'categories': { $in: catalog_ids } })
     .populate('categories')
+    .exec();
+}
+function catagoriesInMenu(menu) {
+  var menu_ids = [menu._id].concat(menu.children);
+  return Catalog
+    .find({'parent': { $in: menu_ids } })
+    .populate('parent')
     .exec();
 }
 
@@ -152,7 +167,14 @@ exports.catalog = function(req, res) {
     .then(responseWithResult(res))
     .catch(handleError(res));
 };
-
+exports.menu = function(req, res) {
+  oncontextmenu
+    .findOne({ id: req.params.id })
+    .execAsync()
+    .then(productsInCategory)
+    .then(responseWithResult(res))
+    .catch(handleError(res));
+};
 exports.search = function(req, res) {
   Product
     .find({ $text: { $search: req.params.term }})

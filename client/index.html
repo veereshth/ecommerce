@@ -1,8 +1,8 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+ <HTML> 
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -10,16 +10,29 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
-      <link rel="stylesheet" href="app/app.css">
       <!-- injector:css -->
+      <link rel="stylesheet" href="app/app.css">
+      <link rel="stylesheet" href="app/css/component.css">
+      <link rel="stylesheet" href="app/css/easy-responsive-tabs.css">
+      <link rel="stylesheet" href="app/css/etalage.css">
+      <link rel="stylesheet" href="app/css/jquery-ui.css">
+      <link rel="stylesheet" href="app/css/megamenu.css">
+      <link rel="stylesheet" href="app/css/style.css">
+      <link rel="stylesheet" href="app/main.css">
+      <link rel="stylesheet" href="app/products/product.css">
       <!-- endinjector -->
     <!-- endbuild -->
+
+
+
   </head>
   <body ng-app="meanshopApp">
     <!--[if lt IE 7]>
@@ -61,7 +74,19 @@
       <script src="bower_components/ng-file-upload-shim/ng-file-upload-shim.js"></script>
       <script src="bower_components/ngCart/dist/ngCart.js"></script>
       <!-- endbower -->
-      <script src="socket.io-client/socket.io.js"></script>
+
+            <!--fonts-->
+      <!--//fonts-->
+    
+
+
+      <script >angular.element(document).ready(function(){$(".megamenu").megamenu();});</script>
+
+
+<script> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+      
+
+
     <!-- endbuild -->
     <!-- build:js(.tmp) app/app.js -->
       <script src="app/app.js"></script>
@@ -73,8 +98,27 @@
       <script src="app/admin/admin.controller.js"></script>
       <script src="app/admin/admin.js"></script>
       <script src="app/app.constant.js"></script>
+      <script src="app/catalog/catalog.controller.js"></script>
+      <script src="app/catalog/catalog.js"></script>
+      <script src="app/catalog/catalog.service.js"></script>
+      <script src="app/js/easing.js"></script>
+      <script src="app/js/easyResponsiveTabs.js"></script>
+      <script src="app/js/jquery-ui.min.js"></script>
+      <script src="app/js/jquery.easydropdown.js"></script>
+      <script src="app/js/jquery.etalage.min.js"></script>
+      <script src="app/js/jquery.openCarousel.js"></script>
+      <script src="app/js/jquery.wmuSlider.js"></script>
+      <script src="app/js/main.js"></script>
+      <script src="app/js/megamenu.js"></script>
+      <script src="app/js/move-top.js"></script>
+      <script src="app/js/navigation.js"></script>
+      <script src="app/js/simpleCart.min.js"></script>
+      <script src="app/js/star-rating.js"></script>
       <script src="app/main/main.controller.js"></script>
       <script src="app/main/main.js"></script>
+      <script src="app/menu/menu.controller.js"></script>
+      <script src="app/menu/menu.js"></script>
+      <script src="app/menu/menu.service.js"></script>
       <script src="app/products/products.controller.js"></script>
       <script src="app/products/products.js"></script>
       <script src="app/products/products.service.js"></script>
@@ -93,4 +137,4 @@
       <!-- endinjector -->
     <!-- endbuild -->
   </body>
-</html>
+</HTML>

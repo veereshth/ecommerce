@@ -6,7 +6,7 @@ var slugs = require('mongoose-url-slugs');
 
 var CatalogSchema = new Schema({
   name: { type: String, required: true},
-  parent: { type: Schema.Types.ObjectId, ref: 'Catalog' },
+  parent: { type: Schema.Types.ObjectId, ref: 'Menu' },
   ancestors: [{ type: Schema.Types.ObjectId, ref: 'Catalog' }],
   children: [{ type: Schema.Types.ObjectId, ref: 'Catalog' }]
 });

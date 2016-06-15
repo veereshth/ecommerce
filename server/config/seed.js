@@ -29,6 +29,7 @@ User.find({}).removeAsync()
     });
   });
 
+/*
 Catalog
   .find({})
   .remove()
@@ -88,3 +89,4 @@ Catalog
   .then(null, function (err) {
     console.error('Error populating Products & categories: ', err);
   });
+*/

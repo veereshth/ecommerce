@@ -1,0 +1,57 @@
+<navbar></navbar>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="thumbnail productbox">
+<!--         <a ui-sref="viewProduct({id: product._id})">
+            <img src="{{product.images[0]}}" alt="{{product.title}}" class="img-responsive">
+            <div class="producttitle">{{product.title}}</div>
+          </a>-->
+             <p><b>{{product.title}}</b></p>
+<!--             <div >
+                     <carousel interval="myInterval">
+                          <slide ng-repeat="slide in product.images">
+                                 <zoom mark-height="100" mark-width="100" src="{{slide}}" zoom-lvl="{{zoomLvl}}"></zoom>
+
+                             <h4 text>Slide {{$index}}</h4>
+                       </slide>
+                </carousel>
+                   </div>-->
+    <div class="slider">
+        <div ng-repeat="photo in product.images">
+        <!-- enumerate all photos -->
+<!--        <img  class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="{{photo.src}}" />-->
+        <zoom mark-height="100" class="slide" mark-width="80" src="{{photo}}" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" zoom-lvl="{{zoomLvl}}"></zoom>
+
+        <!-- prev / next controls -->
+        <a class="arrow prev" href="#" ng-click="showPrev()"></a>
+        <a class="arrow next" href="#" ng-click="showNext()"></a>
+        </div>
+        <!-- extra navigation controls -->
+        <ul class="navb">
+            <li ng-repeat="photo in product.images" ng-class="{'active':isActive($index)}">
+                <img src="{{photo}}" alt="{{photo}}" title="{{photo}}" ng-click="showPhoto($index);" />
+            </li>
+        </ul>
+
+    </div>
+
+          <p>{{product.description}}</p>
+      
+
+        <div class="productprice">
+          <div class="pull-right">
+            <ngcart-addtocart id="{{product._id}}" name="{{product.title}}" price="{{product.price}}" template-url="components/ngcart/addtocart.html" data="product">BUY</ngcart-addtocart>
+            <a ng-show="user.role === 'admin'" ui-sref="editProduct({id: product._id})" class="btn btn-default btn-sm" role="button">EDIT</a>
+            <a ng-show="user.role === 'admin'" class="btn btn-default btn-sm" ng-click="deleteProduct()">DELETE</a>
+          </div>
+          <div class="pricetext">{{product.price | currency }}</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+<footer></footer>

@@ -2,6 +2,9 @@
     "jscodehints.detectedExclusions": [
         "D:/NodeProjects/meanshop/client/components/footer/footer.directive.js",
         "D:/NodeProjects/meanshop/client/app/main/main.js",
-        "D:/NodeProjects/meanshop/client/app/products/products.controller.js"
+        "D:/NodeProjects/meanshop/client/app/products/products.controller.js",
+        "D:/NodeProjects/meanshop/dist/client/bower_components/ng-file-upload-shim/FileAPI.min.js",
+        "D:/NodeProjects/meanshop/client/app/menu/menu.controller.js",
+        "D:/NodeProjects/meanshop/server/api/product/product.model.js"
     ]
 }

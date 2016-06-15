@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('meanshopApp')
-  .controller('NavbarCtrl', function ($scope, Auth, $rootScope, $state, $window, $timeout, Catalog) {
+  .controller('NavbarCtrl', function ($scope, Auth, $rootScope, $state, $window, $timeout, Menu) {
     $scope.menu = [{
       'title': 'Home',
       'state': 'main',
@@ -11,7 +11,7 @@ angular.module('meanshopApp')
       'state': 'products',
       'icon': 'globe'
     }];
-    $scope.catalog = Catalog.query();
+    $scope.catalog = Menu.query();
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;

@@ -1,5 +1,6 @@
 <div class="navbar navbar-default navbar-static-top" ng-controller="NavbarCtrl">
   <div class="container">
+	<div class="header-top">
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
         <span class="sr-only">Toggle navigation</span>
@@ -19,10 +20,7 @@
             <i class="fa fa-cog"></i> Categories <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a ui-sref="settings"><i class="fa fa-key"></i> Change Password</a></li>
-            <li ng-show="isAdmin()" role="separator" class="divider"></li>
-            <li ng-show="isAdmin()"><a ui-sref="admin"><i class="fa fa-users"></i> Manage Users</a></li>
-            <li ng-show="isAdmin()"><a ui-sref="newProduct"><i class="fa fa-plus"></i> Create Product</a></li>
+
                         <li ng-repeat="category in catalog"><a >{{category.name}}</a></li>
 
           </ul>
@@ -51,6 +49,8 @@
             <li><a ui-sref="settings"><i class="fa fa-key"></i> Change Password</a></li>
             <li ng-show="isAdmin()" role="separator" class="divider"></li>
             <li ng-show="isAdmin()"><a ui-sref="admin"><i class="fa fa-users"></i> Manage Users</a></li>
+                        <li ng-show="isAdmin()"><a ui-sref="newMenu"><i class="fa fa-plus"></i> Create Category</a></li>
+            <li ng-show="isAdmin()"><a ui-sref="newCatalog"><i class="fa fa-plus"></i> Create Sub Category</a></li>   
             <li ng-show="isAdmin()"><a ui-sref="newProduct"><i class="fa fa-plus"></i> Create Product</a></li>
           </ul>
         </li>
@@ -62,5 +62,6 @@
         </li>
       </ul>
     </div>
+      </div>
   </div>
 </div>

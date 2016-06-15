@@ -18,6 +18,7 @@ router.put('/:id', auth.hasRole('admin'), controller.update);
 router.patch('/:id', auth.hasRole('admin'), controller.update);
 router.delete('/:id', auth.hasRole('admin'), controller.destroy);
 router.get('/:slug/catalog', controller.catalog);
+router.get('/menu', controller.menu);
 router.get('/:term/search', controller.search);
 
 

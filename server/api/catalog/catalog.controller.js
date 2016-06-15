@@ -11,6 +11,9 @@
 
 var _ = require('lodash');
 var Catalog = require('./catalog.model');
+var ObjectId = require('mongoose').ObjectID;
+var mongo = require('mongoose');
+var mongoose = require('mongoose');
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
@@ -47,7 +50,13 @@ function saveUpdates(updates) {
       });
   };
 }
-
+function catagoryInMenu(catalog) {
+  var menu_ids = [catalog._id].concat(menu.children);
+  return Catalog
+    .find({'parent': { $in: menu_ids } })
+    .populate('parent')
+    .exec();
+}
 function removeEntity(res) {
   return function(entity) {
     if (entity) {
@@ -58,7 +67,16 @@ function removeEntity(res) {
     }
   };
 }
+exports.menu = function(req, res) {
+    console.log("He ehhheee Menu")
+var id = mongoose.Types.ObjectId(req.params.id);
 
+  Catalog
+    .find({ parent : id })
+    .execAsync()
+    .then(responseWithResult(res))
+    .catch(handleError(res));
+};
 // Gets a list of Catalogs
 exports.index = function(req, res) {
   Catalog.find().sort({_id: 1}).execAsync()

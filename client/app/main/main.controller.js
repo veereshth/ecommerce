@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('meanshopApp')
-  .controller('MainCtrl', function($scope, $http, socket, Product) {
+  .controller('MainCtrl', function($scope, $http, Product) {
     $scope.products = Product.query();
   });
