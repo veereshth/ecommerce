@@ -121,7 +121,7 @@
     "npm": "^3.9.6"
   },
   "scripts": {
-    "postinstall": "bower install && grunt install",
+    "postinstall": "npm install -g grunt",
     "start": "grunt serve",
     "test": "grunt test",
     "update-webdriver": "node node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update"
