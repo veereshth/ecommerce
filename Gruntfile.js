@@ -51,7 +51,7 @@ module.exports = function (grunt) {
     },
     open: {
       server: {
-        url: 'https://localmeanshop.herokuapp.com/:<%= express.options.port %>'
+        url: 'https://localmeanshop.herokuapp.com'
       }
     },
     watch: {
