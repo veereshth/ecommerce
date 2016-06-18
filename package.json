@@ -193,8 +193,7 @@
     "npm": "^3.9.6"
   },
   "scripts": {
-    "postinstall": "npm install -g grunt && npm install jit-grunt",
-    "start": "grunt serve",
+    "start": "grunt serve --force",
     "test": "grunt test",
     "update-webdriver": "node node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update"
   },
